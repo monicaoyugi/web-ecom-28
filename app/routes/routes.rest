@@ -1,0 +1,31 @@
+DELETE  http://localhost:4000/products/5f888d896e7a710c28bc21b1
+###
+
+GET http://localhost:4000/products
+
+###
+
+###
+POST http://localhost:4000/products/
+Content-Type: application/json
+
+{
+    "name":"Oranges",
+    "price":100,
+    "description":"These oranges are very sweet"
+}
+
+
+###
+
+DELETE http://localhost:4000/products/5f845dc9f709d30fb0ce5a1f
+
+
+###
+PATCH http://localhost:4000/products/5f845dc9f709d30fb0ce5a1f
+Content-Type: application/json
+
+{
+    "name":"Apples",
+    "price": 300
+}
