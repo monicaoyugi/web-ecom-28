@@ -66,10 +66,11 @@ app.use(jwtCheck);
 router.post('/', upload.single('productImg'), async(req, res) => {
     // console.log(req.file);
     const product = new Product({
-        name : req.body.name,
+        title : req.body.title,
         price : req.body.price,
-        descriptions : req.body.description,
-        productImg: req.file.path.replace(/\\/g, '/')
+        quantity:req.body.quantity,
+        description : req.body.description,
+        productImg: `http://localhost:4000/${req.file.path.replace(/\\/g, '/')}`
     })
     try{
         const newProduct = await product.save();

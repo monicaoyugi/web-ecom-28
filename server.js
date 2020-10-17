@@ -18,7 +18,7 @@ const hostname = '127.0.0.1';
 
 
 app.get("/", (req, res) => {
-    res.send("Hello World!!!");
+    res.send('Our front end home page goes here...');
 });
 app.listen(PORT, () => {
     console.log(`Listening at ${hostname}:${PORT}`);
