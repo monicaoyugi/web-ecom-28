@@ -2,6 +2,8 @@ const express = require('express');
 const morgan = require('morgan');
 const bodyParser = require('body-parser');
 const mongoose = require('mongoose');
+const cors = require('cors');
+const ejs = require('ejs');
 require('dotenv').config();
 
 
@@ -17,28 +19,30 @@ app.use(bodyParser.urlencoded({extended:false}));
 app.use(bodyParser.json());
 
 
-app.use((req, res, next) => {
-    res.header('Acess-Control-Allow-Origin', '*');
-    res.header('Access-Control-Allow-Headers', 
-        'Origin, X-Requested-With, Content-Type, Accept, Authorzation');
-    if(req.method === 'OPTIONS'){
-        res.header('Access-Control-Allow-Method', 'GET, PUT, POST, PATCH, DELETE');
-        return res.status(200).json({});
-    };
-    next(); 
-})
+
+// app.use(cors);
 //this sets the middleware
 const productsRoutes = require('./api/routes/products');
 const ordersRoutes = require('./api/routes/orders');
 const usersRoutes = require('./api/routes/users');
 
+const frontEndRoutes = require('./front-end/routes/front-end');
+
+
+app.set('views', './front-end/public/views');
+app.set('view engine', 'ejs');
+
+//api routes
 app.use('/products', productsRoutes);
 app.use('/orders', ordersRoutes);
 app.use('/users', usersRoutes);
 
+//front-end routes
+app.use('/', frontEndRoutes);
+
 app.use('/uploads', express.static('uploads'));
 
-
+app.use(express.static('./front-end/public'));
 app.use((req, res, next) => {
     const err = new Error('Not Found...');
     err.status = 404;

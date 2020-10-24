@@ -1,0 +1,99 @@
+.custom-navbar{
+    height: 500px;
+    background-image: url('../images/img_2.jpg');
+    background-size: cover;
+    background-position: center;
+    filter: contrast(170%);
+    filter: brightness(100%);
+}
+.navbar{
+    background-color: transparent !important;
+}
+.navbar .nav-item a{
+    color: rgb(49, 13, 107);
+    /* color: rgb(28, 206, 67) !important; */
+}
+.navbar .dropdown-menu{
+    background-color: rgb(255, 94, 0);
+}
+
+.navbar .dropdown-menu .dropdown-item:hover{
+    background-color: rgba(246, 223, 9, 0.5)
+}
+.navbar form button{
+    background-color: black;
+    color: white;
+    border: none;
+}
+
+.navbar form button:hover{
+    background-color: rgb(255, 94, 0);
+}
+
+.navbar .nav-link{
+    font-weight: 800;
+}
+.fruits{
+    margin-top: 30px;
+}
+.fruits-cont{
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content:space-evenly;
+}
+.card{
+    margin-top: 10px;
+    height: 300px;
+    /* margin-right: 10px;
+    margin-left: 10px; */
+    /* border-left: solid 2px rgb(219, 109, 133);
+    border-bottom: solid 2px #e956ac; */
+}
+.card-title{
+    text-align: center;
+    align-items: center;
+}
+.card img{
+    width: 150px;
+    height: 150px;
+    margin: 0 auto;
+}
+.card .price{
+    text-align: center;
+    padding-bottom: 30px;
+}
+.card:hover{
+    box-shadow: 2px 5px 5px 5px;
+    margin-top: -1px;
+    transition: 100ms;
+}
+
+.card .actions{
+    display: flex;
+    justify-content: flex-start;
+}
+.actions span:hover{
+    cursor: pointer;
+    background-color: rgb(255, 94, 0);
+}
+.nav-buttons{
+    position: relative;
+    left: 80%;
+}
+.nav-buttons .total-no{
+    position: relative;
+    top: -40px;
+    right: 20px;
+    color: greenyellow;
+    font-size: 1.5em;
+    font-weight: 700;
+}
+.nav-buttons .material-icons{
+  font-size: 48px;
+  /* color: rgb(245, 82, 177); */
+  color:rgb(255, 94, 0);
+}
+.nav-buttons .material-icons:hover{
+    cursor: pointer;
+}
