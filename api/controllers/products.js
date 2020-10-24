@@ -1,36 +1,9 @@
 const Product = require('../model/products');
-const multer = require('multer');
 const mongoose = require('mongoose');
-
-const storage = multer.diskStorage({
-    destination:(req, file, cb) => {
-        cb(null, './uploads/');
-    },
-    filename:(req, file, cb) => {
-        cb(null, `${new Date().toISOString().replace(/:/g,"")}${file.originalname}`);
-    }
-});
-const fileFilter = (req, file, cb) => {
-    //accept file
-    if(file.mimetype === 'image/jpeg' || file.mimetype === 'image/png'){
-        cb(null, true);
-    } else{
-        cb(new Error('message'), false);
-    };
-};
-const upload = multer({
-    storage:storage, 
-    limits:{
-    fileSize:1024 * 1024 *5
-    },
-    fileFilter:fileFilter
-});
-
-
 exports.products_get_all = (req, res, next) => {
     Product
     .find()
-    .select('price name  description productImg  discount rating _id ')
+    .select('price name  description productImg  discount rating _id category')
     .exec()
     .then(docs => {
         const response = { 
@@ -43,6 +16,7 @@ exports.products_get_all = (req, res, next) => {
                     productImg:doc.productImg,
                     rating:doc.rating,
                     discount:doc.discount,
+                    category:doc.category,
                     _id:doc._id,
                     request:{
                         type:"GET",
@@ -65,6 +39,7 @@ exports.products_create_product = (req, res, next) => {
         name:req.body.name,
         price:req.body.price,
         description:req.body.description,
+        category:req.body.category,
         productImg:`http://localhost:3000/${req.file.path.replace(/\\/g, '/')}`,
         discount:req.body.discount
     });
@@ -79,6 +54,7 @@ exports.products_create_product = (req, res, next) => {
                 productImg:result.productImg,
                 rating:result.rating,
                 discount:result.discount,
+                category:result.category,
                 _id:result._id,
                 request:{
                     type:"GET",
