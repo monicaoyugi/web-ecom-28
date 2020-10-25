@@ -3,7 +3,7 @@ const router = express.Router();
 global.fetch = require('node-fetch');
 
 router.get('/', (req, res) => {
-    
+    console.log(__dirname);
     const url = 'https://e-foodstore.herokuapp.com/products';
     fetch(url)
     .then(data => data.json()) 

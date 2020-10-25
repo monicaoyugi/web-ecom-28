@@ -4,13 +4,13 @@ const bodyParser = require('body-parser');
 const mongoose = require('mongoose');
 const cors = require('cors');
 const ejs = require('ejs');
-// require('dotenv').config();
+require('dotenv').config();
 
 
 mongoose.connect("mongodb+srv://iguta-david:" + process.env.MONGO_ATLAS_PASSWORD + "@nodejs-restful-api.fgmdn.mongodb.net/products?retryWrites=true&w=majority",
 {useNewUrlParser: true, useUnifiedTopology: true, useCreateIndex:true}
 )
-.then(() => console.log('Datbase connected...'))
+.then(() => console.log('Database connected...'))
 .catch(err => {
     console.log(err);
 });
@@ -23,7 +23,7 @@ app.use(bodyParser.urlencoded({extended:true}));
 app.use(bodyParser.json());
 
 
-app.use(cors);
+// app.use(cors);
 //this sets the middleware
 const productsRoutes = require('./api/routes/products');
 const ordersRoutes = require('./api/routes/orders');
