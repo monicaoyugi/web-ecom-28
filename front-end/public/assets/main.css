@@ -9,6 +9,9 @@
 .navbar{
     background-color: transparent !important;
 }
+.navbar-toggler{
+    border: solid 3px rgba(255, 94, 0, 0.9) !important;
+}
 .navbar .nav-item a{
     color: rgb(49, 13, 107);
     /* color: rgb(28, 206, 67) !important; */
