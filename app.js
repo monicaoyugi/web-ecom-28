@@ -9,7 +9,11 @@ const ejs = require('ejs');
 
 mongoose.connect("mongodb+srv://iguta-david:" + process.env.MONGO_ATLAS_PASSWORD + "@nodejs-restful-api.fgmdn.mongodb.net/products?retryWrites=true&w=majority",
 {useNewUrlParser: true, useUnifiedTopology: true, useCreateIndex:true}
-);
+)
+.then(() => console.log('Datbase connected...'))
+.catch(err => {
+    console.log(err);
+});
 //this spins the express app
 const app = express();
 app.use(morgan('dev'));
