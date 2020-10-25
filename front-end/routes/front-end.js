@@ -4,7 +4,7 @@ global.fetch = require('node-fetch');
 
 router.get('/', (req, res) => {
     
-    const url = 'http://localhost:3000/products';
+    const url = 'https://e-foodstore.herokuapp.com/products';
     fetch(url)
     .then(data => data.json()) 
     .then(data => {

@@ -96,12 +96,15 @@
       </div>
     </header>
 
+    <% let productUrl = null %>
+
     <div class="card-header text-center fruits">Fruits</div>
     <div class="fruits-cont">
       <% data.products.forEach((product) => { %>
         <% if (product.category === 'fruits') { %>
+          <% productUrl = '.' + product.productImg.substr(21) %>
         <div class="card" style="width: 10rem">
-          <img src="<%= product.productImg %>" class="card-img-top" alt=".." />
+          <img src="<%= productUrl %>" class="card-img-top" alt=".." />
           <div class="card-body">
             <h5 class="card-title"><%= product.name %></h5>
             <h6 class="price">Ksh. <%= product.price %></h6>
@@ -118,8 +121,9 @@
     <div class="fruits-cont">
       <% data.products.forEach((product) => { %>
         <% if (product.category === 'meat') { %>
+          <% productUrl = '.' + product.productImg.substr(21) %>
         <div class="card" style="width: 10rem">
-          <img src="<%= product.productImg %>" class="card-img-top" alt=".." />
+          <img src="<%= productUrl %>" class="card-img-top" alt=".." />
           <div class="card-body">
             <h5 class="card-title"><%= product.name %></h5>
             <h6 class="price">Ksh. <%= product.price %></h6>
@@ -136,8 +140,9 @@
     <div class="fruits-cont">
       <% data.products.forEach((product) => { %>
         <% if (product.category === 'cereals') { %>
+          <% productUrl = '.' + product.productImg.substr(21) %> 
         <div class="card" style="width: 10rem">
-          <img src="<%= product.productImg %>" class="card-img-top" alt=".." />
+          <img src="<%= productUrl %>" class="card-img-top" alt=".." />
           <div class="card-body">
             <h5 class="card-title"><%= product.name %></h5>
             <h6 class="price">Ksh. <%= product.price %></h6>
@@ -154,8 +159,9 @@
     <div class="fruits-cont">
       <% data.products.forEach((product) => { %>
         <% if (product.category === 'legumes') { %>
+        <% productUrl = '.' + product.productImg.substr(21) %>
         <div class="card" style="width: 10rem">
-          <img src="<%= product.productImg %>" class="card-img-top" alt=".." />
+          <img src="<%= productUrl%>" class="card-img-top" alt=".." />
           <div class="card-body">
             <h5 class="card-title"><%= product.name %></h5>
             <h6 class="price">Ksh. <%= product.price %></h6>
@@ -171,9 +177,10 @@
     <div class="card-header text-center fruits">Eggs</div>
     <div class="fruits-cont">
       <% data.products.forEach((product) => { %>
+        <% productUrl = '.' + product.productImg.substr(21) %>
         <% if (product.category === 'eggs') { %>
         <div class="card" style="width: 10rem">
-          <img src="<%= product.productImg %>" class="card-img-top" alt=".." />
+          <img src="<%= productUrl %>" class="card-img-top" alt=".." />
           <div class="card-body">
             <h5 class="card-title"><%= product.name %></h5>
             <h6 class="price">Ksh. <%= product.price %></h6>
@@ -189,9 +196,10 @@
     <div class="card-header text-center fruits">Drinks</div>
     <div class="fruits-cont">
       <% data.products.forEach((product) => { %>
+        <% productUrl = '.' + product.productImg.substr(21) %>
         <% if (product.category === 'drinks') { %>
         <div class="card" style="width: 10rem">
-          <img src="<%= product.productImg %>" class="card-img-top" alt=".." />
+          <img src="<%= productUrl %>" class="card-img-top" alt=".." />
           <div class="card-body">
             <h5 class="card-title"><%= product.name %></h5>
             <h6 class="price">Ksh. <%= product.price %></h6>
@@ -207,9 +215,11 @@
     <div class="card-header text-center fruits">Vegeteables</div>
     <div class="fruits-cont">
       <% data.products.forEach((product) => { %>
+        <% productUrl = '.' + product.productImg.substr(21) %>
         <% if (product.category === 'vegeteables') { %>
         <div class="card" style="width: 10rem">
-          <img src="<%= product.productImg %>" class="card-img-top" alt=".." />
+          <% productUrl = '.' + product.productImg.substr(21) %>
+          <img src="<%=productUrl%>" class="card-img-top" alt=".." />
           <div class="card-body">
             <h5 class="card-title"><%= product.name %></h5>
             <h6 class="price">Ksh. <%= product.price %></h6>
@@ -225,9 +235,10 @@
     <div class="card-header text-center fruits">Others</div>
     <div class="fruits-cont">
       <% data.products.forEach((product) => { %>
+        <% productUrl = '.' + product.productImg.substr(21) %>
         <% if (product.category === 'others') { %>
         <div class="card" style="width: 10rem">
-          <img src="<%= product.productImg %>" class="card-img-top" alt=".." />
+          <img src="<%= productUrl %>" class="card-img-top" alt=".." />
           <div class="card-body">
             <h5 class="card-title"><%= product.name %></h5>
             <h6 class="price">Ksh. <%= product.price %></h6>

@@ -59,6 +59,9 @@
     height: 150px;
     margin: 0 auto;
 }
+.card-header{
+    background-color: grey;
+}
 .card .price{
     text-align: center;
     padding-bottom: 30px;
