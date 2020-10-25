@@ -4,7 +4,7 @@ const bodyParser = require('body-parser');
 const mongoose = require('mongoose');
 const cors = require('cors');
 const ejs = require('ejs');
-require('dotenv').config();
+// require('dotenv').config();
 
 
 mongoose.connect("mongodb+srv://iguta-david:" + process.env.MONGO_ATLAS_PASSWORD + "@nodejs-restful-api.fgmdn.mongodb.net/products?retryWrites=true&w=majority",
@@ -14,13 +14,12 @@ mongoose.connect("mongodb+srv://iguta-david:" + process.env.MONGO_ATLAS_PASSWORD
 const app = express();
 app.use(morgan('dev'));
 //url encoded bodies
-app.use(bodyParser.urlencoded({extended:false}));
+app.use(bodyParser.urlencoded({extended:true}));
 //for parsing json data
 app.use(bodyParser.json());
 
 
-
-// app.use(cors);
+app.use(cors);
 //this sets the middleware
 const productsRoutes = require('./api/routes/products');
 const ordersRoutes = require('./api/routes/orders');
