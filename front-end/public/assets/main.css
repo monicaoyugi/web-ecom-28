@@ -81,8 +81,7 @@
     background-color: rgb(255, 94, 0);
 }
 .nav-buttons{
-    position: relative;
-    left: 80%;
+ float: right;
 }
 .nav-buttons .total-no{
     position: relative;
