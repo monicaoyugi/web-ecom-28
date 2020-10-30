@@ -76,6 +76,7 @@ exports.products_get_product = (req, res, next) => {
     .then(doc => {
         if(doc){
             res.status(200).json({
+                count:1,
                 message:"Product retrieved successfully...",
                 product:{
                     name:doc.name,
