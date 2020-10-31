@@ -76,6 +76,7 @@ exports.products_get_product = (req, res, next) => {
     .then(doc => {
         if(doc){
             res.status(200).json({
+                count:1,
                 message:"Product retrieved successfully...",
                 product:{
                     name:doc.name,
@@ -144,4 +145,40 @@ exports.products_delete_product = (req, res, next) => {
         console.log(err);
         res.status(500).json({err:err})
     })
+}
+
+exports.product_search = (req, res) => {
+    let product = req.params.productName;
+    Product.find({name:product})
+    .select('price name  description productImg  discount rating _id category')
+    .exec()
+    .then(docs => {
+        const response = { 
+            count:docs.length,
+            products: docs.map(doc =>{
+                return {
+                    name:doc.name,
+                    price:doc.price,
+                    description:doc.description,
+                    productImg:doc.productImg,
+                    rating:doc.rating,
+                    discount:doc.discount,
+                    category:doc.category,
+                    _id:doc._id,
+                    request:{
+                        type:"GET",
+                        url:`http://localhost:3000/products/${doc._id}`
+                    }
+                }
+            })
+        }
+        res.status(200).json(response);
+    })
+    .catch(err => {
+        console.log(err);
+        res.status(500).json({
+            Error:err
+        });
+    });
+    
 }

@@ -1,0 +1,76 @@
+<header>
+    <div class="custom-navbar">
+      <nav class="navbar navbar-expand-md navbar-dark bg-dark">
+        <a class="navbar-brand" href="#">
+          <img src="/images/logo5.png" />
+        </a>
+        <button
+          class="navbar-toggler"
+          type="button"
+          data-toggle="collapse"
+          data-target="#navbarSupportedContent"
+          aria-controls="navbarSupportedContent"
+          aria-expanded="false"
+          aria-label="Toggle navigation"
+        >
+          <span class="navbar-toggler-icon"></span>
+        </button>
+
+        <div class="collapse navbar-collapse" id="navbarSupportedContent">
+          <ul class="navbar-nav mr-auto">
+            <li class="nav-item active">
+              <a class="nav-link" href="https://e-foodstore.herokuapp.com/"
+                >Home <span class="sr-only">(current)</span></a
+              >
+            </li>
+            <li class="nav-item dropdown">
+              <a
+                class="nav-link dropdown-toggle"
+                href="#"
+                id="navbarDropdown"
+                role="button"
+                data-toggle="dropdown"
+                aria-haspopup="true"
+                aria-expanded="false"
+              >
+                Category
+              </a>
+              <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+                <a class="dropdown-item" href="#fruits">Fruits</a>
+                <a class="dropdown-item" href="#vegeteables">Vegetables</a>
+                <a class="dropdown-item" href="#tubers">Tubers</a>
+                <a class="dropdown-item" href="#meat">Meat</a>
+                <a class="dropdown-item" href="#eggs">Eggs</a>
+                <a class="dropdown-item" href="#cereals">Cereals</a>
+                <a class="dropdown-item" href="#legumes">Legumes</a>
+                <a class="dropdown-item" href="#others">Others</a>
+              </div>
+            </li>
+          </ul>
+          <form class="form-inline my-2 my-lg-0" action="/search" method="POST">
+            <input
+              class="form-control mr-sm-2"
+              name="product"
+              type="search"
+              placeholder="Search Product"
+              aria-label="Search"
+              required
+            />
+            <button
+              class="btn btn-outline-success my-2 my-sm-0"
+              type="submit"
+            >
+              Search
+            </button>
+            
+          </form>
+        </div>
+      </nav>
+      <div class="nav-buttons">
+        <span class="material-icons favourite"> favorite_border </span>
+        <span class="total-no">3</span>
+        <span class="material-icons cart"> shopping_cart </span>
+        <span class="total-no">5</span>
+      </div>
+    </div>
+  </header>

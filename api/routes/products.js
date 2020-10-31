@@ -34,6 +34,8 @@ const upload = multer({
 
 router.get('/', productsController.products_get_all);
 
+router.get('/search/:productName', productsController.product_search);
+
 
 router.post('/', checkAuth, upload.single('productImg'), productsController.products_create_product);
 

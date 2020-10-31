@@ -16,21 +16,21 @@ exports.user_signup = (req, res, next) => {
                 bcrypt.hash(req.body.password, 10, (err, hash) => {
                     if (err) {
                         res.status(500).json({
-                            error: err
+                            error: 'Error'
                         })
                     }
                     else {
                         const user = new User({
                             _id: mongoose.Types.ObjectId(),
+                            firstName:req.body.firstName,
+                            lastName:req.body.lastName,
                             email: req.body.email,
                             password: hash
                         });
                         user
                             .save()
                             .then(result => {
-                                res.status(201).json({
-                                    message: 'User created...'
-                                })
+                                res.redirect('/');
                             })
                             .catch(err => {
                                 console.log(err);
